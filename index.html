@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code × Obsidian 記憶フォルダの作り方</title>
+<meta name="description" content="フォルダを1つ作って、Claude Codeにこのページを貼るだけ。セッションが変わっても前回の続きを覚えている「AIの記憶フォルダ」を、Obsidianで読める形で作る導入マニュアル。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .ai-box{border:2px dashed var(--accent);background:#fff;border-radius:16px;padding:20px 24px;margin-top:18px;font-size:.88rem;color:var(--ink-soft)}
+  .ai-box b{color:var(--ink)}
+  .ai-box code{background:var(--paper-2);padding:2px 8px;border-radius:6px;font-size:.8rem;word-break:break-all}
+  .tree{background:var(--code-bg);color:var(--code-ink);border-radius:12px;padding:16px 20px;font-size:.8rem;line-height:1.8;overflow-x:auto;margin-top:12px}
+  .same{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:14px}
+  .same .side{background:var(--paper-2);border-radius:12px;padding:14px 16px;font-size:.86rem;color:var(--ink-soft)}
+  .same .side b{display:block;color:var(--ink);font-size:.95rem;margin-bottom:4px}
+  .same .mid{font-size:1.4rem;color:var(--accent)}
+  @media(max-width:640px){.same{grid-template-columns:1fr}.same .mid{text-align:center;transform:rotate(90deg)}}
+  .card code{background:var(--paper-2);padding:2px 8px;border-radius:6px;font-size:.82rem}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="logo" href="./">🧠 Claude Code × <span class="brain">Obsidian</span> 記憶フォルダ</a>
+    <nav class="topnav">
+      <a href="#what">これは何？</a>
+      <a href="#ready">準備</a>
+      <a href="#install">導入</a>
+      <a href="#check">動作確認</a>
+      <a href="#use">使い方</a>
+      <a href="#trouble">困ったとき</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-badge accent">Claude Code 導入マニュアル</div>
+  <h1>AIが、<span class="hl">前回のことを覚えてる。</span></h1>
+  <p class="lead">フォルダを1つ作って、Claude Code にこのページを貼るだけ。セッションが変わっても「昨日の続きやろう」で再開できる<strong>AIの記憶フォルダ</strong>ができあがります。AIが書いた記憶は、無料のメモアプリ Obsidian で読んだり直したりできます。</p>
+  <div class="meta">
+    <span class="chip accent">所要時間 約10分</span>
+    <span class="chip">🍎 Mac / 🪟 Windows</span>
+    <span class="chip">Obsidian は無料・登録不要</span>
+  </div>
+</header>
+
+<main>
+
+<!-- 01 これは何 -->
+<section id="what">
+  <div class="sec-head"><div class="step-num">01</div><h2>これは何？ — AIの「記憶喪失」をなくす</h2></div>
+  <div class="card">
+    <p>Claude Code は、新しいセッションを始めるたびに前回の内容を忘れます。毎回ちがう担当者に、最初から説明し直しているようなものです。</p>
+    <p>この仕組みを入れると、Claude Code が<strong>セッションの最初に記憶フォルダを自分で読み</strong>、作業の区切りで<strong>自分で記録</strong>するようになります。</p>
+  </div>
+
+  <div class="ba">
+    <div class="card before">
+      <span class="tag">BEFORE</span>
+      <p><strong>毎回ゼロから説明</strong></p>
+      <div class="bubble">「前回の続きなんだけど、〇〇をやってて、今こういう状況で…」</div>
+      <div class="bubble">「すみません、その件は分からないので詳しく教えてください」</div>
+    </div>
+    <div class="card after">
+      <span class="tag">AFTER</span>
+      <p><strong>ひとことで再開</strong></p>
+      <div class="bubble">「昨日の続きやろう」</div>
+      <div class="bubble">「昨日は〇〇まで終わってます。残りは△△なので、そこから進めますね！」</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🗂 仕組み — 1つのフォルダを、2つのアプリで見る</h3>
+    <div class="same">
+      <div class="side"><b>Claude Code</b>記憶を読む・書く（自動）</div>
+      <div class="mid">⇄</div>
+      <div class="side"><b>Obsidian</b>記憶を人が読む・直す</div>
+    </div>
+    <p style="margin-top:14px">どちらも<strong>あなたが作った同じフォルダ</strong>を見ているだけ。中身はただのメモ（テキストファイル）なので、ネットに送られることもありません。</p>
+    <pre class="tree">あなたのフォルダ/
+├── CLAUDE.md     … AIが毎回最初に読むルール
+├── about-me.md   … あなたのプロフィール（呼び方・目標・話し方の好み）
+├── todo.md       … やること
+├── daily/        … 日報（その日やったこと・決めたこと）
+├── projects/     … 取り組み中のことの「今どこ・次なに」
+├── decisions/    … 大事な判断の記録
+├── mistakes/     … ミスの記録 → 同じミスを繰り返さなくなる
+└── ideas/        … アイデアのメモ</pre>
+  </div>
+</section>
+
+<!-- 02 準備 -->
+<section id="ready">
+  <div class="sec-head"><div class="step-num">02</div><h2>準備 — 記憶用のフォルダを1つ作る</h2></div>
+
+  <div class="card">
+    <h3>STEP 1　フォルダを作る</h3>
+    <p>名前は <code>Claude-Brain</code> のような<strong>英数字</strong>がおすすめです（日本語やスペースは避けると安心）。</p>
+    <div class="win-grid">
+      <div class="win-card">
+        <div class="w-no">🍎 Mac</div>
+        <h4>Finder で作る</h4>
+        <p>Finder を開く → 左の「書類」→ 何もないところを右クリック →「新規フォルダ」→ 名前を <code>Claude-Brain</code> にする</p>
+      </div>
+      <div class="win-card">
+        <div class="w-no">🪟 Windows</div>
+        <h4>エクスプローラーで作る</h4>
+        <p>エクスプローラーを開く → 左の「ドキュメント」→ 何もないところを右クリック →「新規作成」→「フォルダー」→ 名前を <code>Claude-Brain</code> にする</p>
+      </div>
+    </div>
+    <div class="note warn"><span class="ico">⚠️</span><span>「書類」「デスクトップ」「ダウンロード」<strong>そのもの</strong>は選ばないでください。中の全ファイルが記憶として読み込まれてしまいます。必ず<strong>新しく作ったフォルダ</strong>を使います。</span></div>
+  </div>
+
+  <div class="card">
+    <h3>STEP 2　Claude Code でそのフォルダを開く</h3>
+    <ul>
+      <li><b>デスクトップアプリ（Code）</b>：新しいセッションを始めるときに、作業フォルダとして今作った <code>Claude-Brain</code> を選ぶ</li>
+      <li><b>VS Code などのエディタ</b>：「フォルダーを開く」で <code>Claude-Brain</code> を開いてから Claude Code を起動</li>
+      <li><b>ターミナル</b>：<code>Claude-Brain</code> に移動してから <code>claude</code> を起動</li>
+    </ul>
+    <div class="note tip"><span class="ico">💡</span><span>Obsidian は、まだ入れていなくても大丈夫です。導入の途中で Claude Code が確認して、入れ方を案内してくれます。</span></div>
+  </div>
+</section>
+
+<!-- 03 導入 -->
+<section id="install">
+  <div class="sec-head"><div class="step-num">03</div><h2>導入 — このメッセージを貼るだけ</h2></div>
+  <div class="card">
+    <h3>STEP 3　Claude Code に貼って送信</h3>
+    <p>「コピー」を押して、<strong>Claude-Brain フォルダを開いた Claude Code</strong> に貼り付けて送信してください。あとは Claude Code の質問に答えていくだけです。</p>
+    <div class="prompt-box" style="margin-top:12px">
+      <div class="prompt-head">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <span class="fname">導入メッセージ</span>
+        <button class="copy-btn" data-target="installPrompt">コピー</button>
+      </div>
+      <div class="prompt-scroll"><pre id="installPrompt"></pre></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>進む流れ</h3>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="flow-dot">A</div>
+        <div class="flow-body"><b>確認（読むだけ）</b><span>フォルダの場所・中身、Obsidianが入っているかを確認します</span></div>
+      </div>
+      <div class="flow-item"><div class="flow-line"></div></div>
+      <div class="flow-item">
+        <div class="flow-dot">B</div>
+        <div class="flow-body"><b>「作っていい？」→ OK</b><span>作るファイルの一覧が出るので、OKと返します</span></div>
+      </div>
+      <div class="flow-item"><div class="flow-line"></div></div>
+      <div class="flow-item">
+        <div class="flow-dot">C</div>
+        <div class="flow-body"><b>3つの質問に答える</b><span>呼ばれ方・いま目指していること・話し方の好み（スキップもOK）</span></div>
+      </div>
+      <div class="flow-item"><div class="flow-line"></div></div>
+      <div class="flow-item">
+        <div class="flow-dot">D</div>
+        <div class="flow-body"><b>Obsidian でフォルダを開く</b><span>画面の案内どおりに（次の STEP 4）</span></div>
+      </div>
+    </div>
+    <div class="note ok"><span class="ico">✅</span><span>途中で「ファイルを作っていいですか？」と許可を求められたら、OKしてください。このセットアップで触るのは <strong>Claude-Brain フォルダの中だけ</strong>です。</span></div>
+  </div>
+
+  <div class="card">
+    <h3>STEP 4　Obsidian で Claude-Brain を開く</h3>
+    <ol>
+      <li>Obsidian を起動（入っていなければ <a href="https://obsidian.md/download" target="_blank" rel="noopener">obsidian.md/download</a> から。無料・アカウント登録不要）</li>
+      <li>最初の画面で<b>「フォルダを保管庫として開く」</b>（英語なら <b>Open folder as vault</b>）→「開く」</li>
+      <li><code>Claude-Brain</code> フォルダを選んで「開く」</li>
+      <li>「このフォルダの作成者を信頼しますか？」と出たら<b>「信頼する」</b></li>
+      <li>左側に <code>daily</code>・<code>projects</code> などが見えたらOK</li>
+    </ol>
+  </div>
+
+  <details>
+    <summary>📄 Claude Code が読む手順書（中身を見たい人向け）</summary>
+    <div class="d-body">
+      <p>Claude Code は <a href="setup.md">setup.md</a> を読んで作業します。中身はただの手順書（文章）で、プログラムのダウンロードや実行はしません。</p>
+    </div>
+  </details>
+
+  <div class="ai-box">
+    🤖 <b>Claude Code へ：</b>このページのURLを渡されたら、Obsidian連携のセットアップを頼まれています。手順書の原文 <code>https://ryoya9595.github.io/obsidian-claude-setup/setup.md</code> を curl（Windows は <code>curl.exe</code>）で取得して全文を読み、その手順どおりに、いま開いている作業フォルダで進めてください。何かを作る前には、手順書のとおりユーザーの了承を取ってください。
+  </div>
+</section>
+
+<!-- 04 動作確認 -->
+<section id="check">
+  <div class="sec-head"><div class="step-num">04</div><h2>動作確認 — 新しいセッションで試す</h2></div>
+  <div class="card">
+    <p>記憶のルールは<strong>次のセッションから</strong>効きます。Claude Code で<strong>新しいセッション</strong>を始めて（フォルダは同じ <code>Claude-Brain</code>）、これを送ってください。</p>
+    <div class="inline-cmd"><code id="testPrompt"></code><button class="copy-btn" data-target="testPrompt">コピー</button></div>
+    <p>「前回は Obsidian連携をセットアップしました」のように、<strong>前回のことを話してくれたら成功</strong>です。</p>
+  </div>
+  <div class="card">
+    <h3>もう一歩：記憶に書かれるところを見る</h3>
+    <p>続けてこう送ってから、Obsidian で <code>about-me.md</code> か今日の <code>daily</code> を開いてみてください。書き込まれていれば完璧です。</p>
+    <div class="inline-cmd"><code id="memoPrompt"></code><button class="copy-btn" data-target="memoPrompt">コピー</button></div>
+  </div>
+</section>
+
+<!-- 05 使い方 -->
+<section id="use">
+  <div class="sec-head"><div class="step-num">05</div><h2>使い方 — 使うほど賢くなる</h2></div>
+  <div class="card">
+    <h3>🌱 ふだんの使い方</h3>
+    <table>
+      <tr><th>こんなとき</th><th>こう言う</th></tr>
+      <tr><td>作業を再開したい</td><td>「昨日の続きやろう」「今の状況教えて」</td></tr>
+      <tr><td>覚えておいてほしい</td><td>「これ覚えておいて：〇〇」</td></tr>
+      <tr><td>やることを管理したい</td><td>「todoに〇〇を追加して」「今日やること出して」</td></tr>
+      <tr><td>AIが間違えた</td><td>「それ違う、〇〇して」→ <b>mistakes</b> に残って、次から気をつける</td></tr>
+      <tr><td>記憶がごちゃごちゃしてきた</td><td>「記憶を整理して」（月1回くらいがおすすめ）</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>🧠 賢く育てるコツ</h3>
+    <ul>
+      <li><strong>Claude Code は必ず Claude-Brain フォルダを開いて使う</strong>（別のフォルダで開くと記憶を読みません）</li>
+      <li><strong>ミスは遠慮なく指摘する</strong>のがいちばん効きます</li>
+      <li><strong>about-me.md は自分で書き足してOK</strong>。仕事・目標・苦手なことなどを書くほど、話が早くなります</li>
+      <li><strong>CLAUDE.md を書き換えると AI の動きが変わります</strong>（例：「返事は3行以内で」と足す）</li>
+      <li>Obsidian の<strong>グラフビュー</strong>で記憶のつながりを眺めると楽しいです</li>
+    </ul>
+  </div>
+  <div class="note warn"><span class="ico">⚠️</span><span><strong>パスワード・APIキー・カード番号は記憶に書かせないでください。</strong>お客さんの個人情報も必要最低限にしましょう。</span></div>
+</section>
+
+<!-- 06 困ったとき -->
+<section id="trouble">
+  <div class="sec-head"><div class="step-num">06</div><h2>困ったとき</h2></div>
+  <p style="color:var(--ink-soft);font-size:.92rem;margin-bottom:8px">基本は、症状をそのまま Claude Code に伝えれば直してくれます。よくあるものだけ載せています。</p>
+
+  <details>
+    <summary>新しいセッションで、前回のことを覚えていない</summary>
+    <div class="d-body">
+      <p>いちばん多い原因は、<b>別のフォルダを開いている</b>ことです。Claude Code の作業フォルダが <code>Claude-Brain</code> になっているか確認してください。合っているなら「CLAUDE.md の記憶のルールを読んで、今の状況を教えて」と送ってみてください。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>「フォルダの場所がよくない」と止められた</summary>
+    <div class="d-body">
+      <p>「書類」や「デスクトップ」そのものを開いていると止まるようになっています。02 の STEP 1 で新しいフォルダを作り、そのフォルダを Claude Code で開き直してから、もう一度導入メッセージを貼ってください。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Obsidian に何も表示されない</summary>
+    <div class="d-body">
+      <p>別のフォルダを保管庫として開いている可能性があります。Obsidian の左下の保管庫アイコン →「フォルダを保管庫として開く」から、<code>Claude-Brain</code> を選び直してください。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>自動で記録してくれない</summary>
+    <div class="d-body">
+      <p>「今の内容を daily に記録して」と頼めば確実に記録されます。何度も忘れるようなら「記録を忘れないように CLAUDE.md のルールを強めて」と頼んでみてください。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>別のフォルダで作業するときも、この記憶を使いたい</summary>
+    <div class="d-body">
+      <p>Claude-Brain を開いた Claude Code に「<b>他のフォルダでもこの記憶を使えるようにして</b>」と頼んでください。手順書の付録どおりに、Claude Code 全体の設定に記憶フォルダの場所を書き足してくれます（書き足す前に確認があります）。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>前に別の方法（MCP版）で記憶の仕組みを入れた</summary>
+    <div class="d-body">
+      <p>そのままで大丈夫です。導入のときに Claude Code が見つけて教えてくれます（以前のものは消しません）。どちらを使うか迷ったら、講師に相談してください。</p>
+    </div>
+  </details>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-in">
+    <span>🧠 Claude Code × Obsidian 記憶フォルダの作り方</span>
+    <span>制作：関 諒也</span>
+  </div>
+</footer>
+
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
