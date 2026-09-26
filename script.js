@@ -15,7 +15,7 @@ ${GUIDE_URL}
 3. 私はパソコンに詳しくないので、やさしい言葉で、短く説明してください。`;
 
 const TEST_PROMPT = `今の状況を教えて`;
-const MEMO_PROMPT = `todoに「Obsidianを眺めてみる」を追加して`;
+const MEMO_PROMPT = `todoに「Obsidianを眺めてみる」を追加して（優先度は中でOK）`;
 const MORNING_PROMPT = `おはよう`;
 const IMPORT_PROMPT = `通常のClaudeの会話も引き継いで`;
 
