@@ -2,7 +2,7 @@
 const PAGE_URL = "https://ryoya9595.github.io/obsidian-claude-setup/";
 const GUIDE_URL = PAGE_URL + "setup.md";
 
-const INSTALL_PROMPT = `このフォルダに「Obsidian連携（AIの記憶フォルダ）」をセットアップしてください。
+const INSTALL_PROMPT = `このフォルダに「AI秘書＋Obsidian連携（AIの記憶フォルダ）」をセットアップしてください。
 
 【手順書】
 ${GUIDE_URL}
@@ -15,12 +15,16 @@ ${GUIDE_URL}
 3. 私はパソコンに詳しくないので、やさしい言葉で、短く説明してください。`;
 
 const TEST_PROMPT = `今の状況を教えて`;
-const MEMO_PROMPT = `私の好きな食べ物はカレーです。覚えておいて`;
+const MEMO_PROMPT = `todoに「Obsidianを眺めてみる」を追加して`;
+const MORNING_PROMPT = `おはよう`;
+const IMPORT_PROMPT = `通常のClaudeの会話も引き継いで`;
 
 const TEXTS = {
   installPrompt: INSTALL_PROMPT,
   testPrompt: TEST_PROMPT,
   memoPrompt: MEMO_PROMPT,
+  morningPrompt: MORNING_PROMPT,
+  importPrompt: IMPORT_PROMPT,
 };
 
 // 各 <pre> に本文を流し込む

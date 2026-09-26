@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude Code × Obsidian 記憶フォルダの作り方</title>
-<meta name="description" content="フォルダを1つ作って、Claude Codeにこのページを貼るだけ。セッションが変わっても前回の続きを覚えている「AIの記憶フォルダ」を、Obsidianで読める形で作る導入マニュアル。">
+<title>AI秘書と記憶フォルダの作り方</title>
+<meta name="description" content="フォルダを1つ作って、Claude Codeにメッセージを貼るだけ。前回の続きを覚えていて、「おはよう」で今日やることを出してくれるAI秘書を、Obsidianで読める記憶フォルダつきで作る導入マニュアル。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
 
 <div class="topbar">
   <div class="topbar-in">
-    <a class="logo" href="./">🧠 Claude Code × <span class="brain">Obsidian</span> 記憶フォルダ</a>
+    <a class="logo" href="./">🧠 AI秘書 × <span class="brain">Obsidian</span> 記憶フォルダ</a>
     <nav class="topnav">
       <a href="#what">これは何？</a>
       <a href="#ready">準備</a>
@@ -39,9 +39,9 @@
 </div>
 
 <header class="hero">
-  <div class="hero-badge accent">Claude Code 導入マニュアル</div>
-  <h1>AIが、<span class="hl">前回のことを覚えてる。</span></h1>
-  <p class="lead">フォルダを1つ作って、Claude Code にこのページを貼るだけ。セッションが変わっても「昨日の続きやろう」で再開できる<strong>AIの記憶フォルダ</strong>ができあがります。AIが書いた記憶は、無料のメモアプリ Obsidian で読んだり直したりできます。</p>
+  <div class="hero-badge accent">Claude Code はじめての導入マニュアル</div>
+  <h1>自分専用のAI秘書が、<br><span class="hl">前回のことを覚えてる。</span></h1>
+  <p class="lead">フォルダを1つ作って、Claude Code にメッセージを貼るだけ。「おはよう」で今日やることを出してくれて、セッションが変わっても前回の続きを覚えている<strong>あなた専用のAI秘書</strong>ができあがります。秘書が書いた記憶は、無料のメモアプリ Obsidian で読んだり直したりできます。</p>
   <div class="meta">
     <span class="chip accent">所要時間 約10分</span>
     <span class="chip">🍎 Mac / 🪟 Windows</span>
@@ -53,10 +53,10 @@
 
 <!-- 01 これは何 -->
 <section id="what">
-  <div class="sec-head"><div class="step-num">01</div><h2>これは何？ — AIの「記憶喪失」をなくす</h2></div>
+  <div class="sec-head"><div class="step-num">01</div><h2>これは何？ — 記憶を持ったAI秘書をつくる</h2></div>
   <div class="card">
     <p>Claude Code は、新しいセッションを始めるたびに前回の内容を忘れます。毎回ちがう担当者に、最初から説明し直しているようなものです。</p>
-    <p>この仕組みを入れると、Claude Code が<strong>セッションの最初に記憶フォルダを自分で読み</strong>、作業の区切りで<strong>自分で記録</strong>するようになります。</p>
+    <p>この仕組みを入れると、Claude Code が<strong>セッションの最初に記憶フォルダを自分で読み</strong>、作業の区切りで<strong>自分で記録</strong>するようになります。さらに、名前とキャラをあなたが決めた<strong>AI秘書</strong>として、やることの管理や1日の段取りを手伝ってくれます。</p>
   </div>
 
   <div class="ba">
@@ -69,8 +69,8 @@
     <div class="card after">
       <span class="tag">AFTER</span>
       <p><strong>ひとことで再開</strong></p>
-      <div class="bubble">「昨日の続きやろう」</div>
-      <div class="bubble">「昨日は〇〇まで終わってます。残りは△△なので、そこから進めますね！」</div>
+      <div class="bubble">「おはよう」</div>
+      <div class="bubble">「おはよう！今日はこの3つがおすすめ。①昨日やり残した〇〇 ②期限が近い△△ ③… どれからやる？」</div>
     </div>
   </div>
 
@@ -84,8 +84,9 @@
     <p style="margin-top:14px">どちらも<strong>あなたが作った同じフォルダ</strong>を見ているだけ。中身はただのメモ（テキストファイル）なので、ネットに送られることもありません。</p>
     <pre class="tree">あなたのフォルダ/
 ├── CLAUDE.md     … AIが毎回最初に読むルール
-├── about-me.md   … あなたのプロフィール（呼び方・目標・話し方の好み）
-├── todo.md       … やること
+├── about-me.md   … あなたのプロフィール（呼び方・目標）
+├── secretary.md  … AI秘書の設定（名前・性格・話し方）
+├── todo.md       … やること（優先度つき）
 ├── daily/        … 日報（その日やったこと・決めたこと）
 ├── projects/     … 取り組み中のことの「今どこ・次なに」
 ├── decisions/    … 大事な判断の記録
@@ -97,6 +98,8 @@
 <!-- 02 準備 -->
 <section id="ready">
   <div class="sec-head"><div class="step-num">02</div><h2>準備 — 記憶用のフォルダを1つ作る</h2></div>
+
+  <div class="note ok"><span class="ico">✅</span><span><strong>フォルダをもう作ってある人は STEP 2 へ</strong>（講師と一緒に作った人など）。</span></div>
 
   <div class="card">
     <h3>STEP 1　フォルダを作る</h3>
@@ -158,7 +161,7 @@
       <div class="flow-item"><div class="flow-line"></div></div>
       <div class="flow-item">
         <div class="flow-dot">C</div>
-        <div class="flow-body"><b>3つの質問に答える</b><span>呼ばれ方・いま目指していること・話し方の好み（スキップもOK）</span></div>
+        <div class="flow-body"><b>4つの質問に答える</b><span>呼ばれ方・いま目指していること・秘書の名前・秘書のキャラ（「おまかせ」「スキップ」もOK）</span></div>
       </div>
       <div class="flow-item"><div class="flow-line"></div></div>
       <div class="flow-item">
@@ -188,7 +191,7 @@
   </details>
 
   <div class="ai-box">
-    🤖 <b>Claude Code へ：</b>このページのURLを渡されたら、Obsidian連携のセットアップを頼まれています。手順書の原文 <code>https://ryoya9595.github.io/obsidian-claude-setup/setup.md</code> を curl（Windows は <code>curl.exe</code>）で取得して全文を読み（作業フォルダには保存しない）、その手順どおりに、いま開いている作業フォルダで進めてください。何かを作る前には、手順書のとおりユーザーの了承を取ってください。
+    🤖 <b>Claude Code へ：</b>このページのURLを渡されたら、AI秘書＋Obsidian連携のセットアップを頼まれています。手順書の原文 <code>https://ryoya9595.github.io/obsidian-claude-setup/setup.md</code> を curl（Windows は <code>curl.exe</code>）で取得して全文を読み（作業フォルダには保存しない）、その手順どおりに、いま開いている作業フォルダで進めてください。何かを作る前には、手順書のとおりユーザーの了承を取ってください。
   </div>
 </section>
 
@@ -198,12 +201,14 @@
   <div class="card">
     <p>記憶のルールは<strong>次のセッションから</strong>効きます。Claude Code で<strong>新しいセッション</strong>を始めて（フォルダは同じ <code>Claude-Brain</code>）、これを送ってください。</p>
     <div class="inline-cmd"><code id="testPrompt"></code><button class="copy-btn" data-target="testPrompt">コピー</button></div>
-    <p>「前回は Obsidian連携をセットアップしました」のように、<strong>前回のことを話してくれたら成功</strong>です。</p>
+    <p>秘書が決めたキャラで「前回は AI秘書のセットアップをしました」のように、<strong>前回のことを話してくれたら成功</strong>です。</p>
   </div>
   <div class="card">
-    <h3>もう一歩：記憶に書かれるところを見る</h3>
-    <p>続けてこう送ってから、Obsidian で <code>about-me.md</code> か今日の <code>daily</code> を開いてみてください。書き込まれていれば完璧です。</p>
+    <h3>もう一歩：秘書に仕事を頼んでみる</h3>
+    <p>続けて、この2つを順番に送ってみてください。</p>
     <div class="inline-cmd"><code id="memoPrompt"></code><button class="copy-btn" data-target="memoPrompt">コピー</button></div>
+    <div class="inline-cmd"><code id="morningPrompt"></code><button class="copy-btn" data-target="morningPrompt">コピー</button></div>
+    <p>秘書が今日やることを出してくれて、Obsidian で <code>todo.md</code> を開いて書き込まれていれば完璧です。</p>
   </div>
 </section>
 
@@ -214,9 +219,14 @@
     <h3>🌱 ふだんの使い方</h3>
     <table>
       <tr><th>こんなとき</th><th>こう言う</th></tr>
+      <tr><td>1日の始まり</td><td>「おはよう」→ 今日やることを優先順に3つ出してくれる</td></tr>
+      <tr><td>やることが増えた</td><td>「todoに〇〇を追加して」（期限があれば一緒に）</td></tr>
+      <tr><td>終わった</td><td>「〇〇終わった」→ 完了にして、次にやることを提案</td></tr>
+      <tr><td>思いついた</td><td>「メモして：〇〇」→ アイデアとして保存</td></tr>
+      <tr><td>1日の終わり</td><td>「おつかれ」→ 今日のまとめと明日やることを記録</td></tr>
+      <tr><td>週末に</td><td>「今週の振り返り」→ 来週の優先3つまで出してくれる</td></tr>
       <tr><td>作業を再開したい</td><td>「昨日の続きやろう」「今の状況教えて」</td></tr>
       <tr><td>覚えておいてほしい</td><td>「これ覚えておいて：〇〇」</td></tr>
-      <tr><td>やることを管理したい</td><td>「todoに〇〇を追加して」「今日やること出して」</td></tr>
       <tr><td>AIが間違えた</td><td>「それ違う、〇〇して」→ <b>mistakes</b> に残って、次から気をつける</td></tr>
       <tr><td>記憶がごちゃごちゃしてきた</td><td>「記憶を整理して」（月1回くらいがおすすめ）</td></tr>
     </table>
@@ -227,9 +237,21 @@
       <li><strong>Claude Code は必ず Claude-Brain フォルダを開いて使う</strong>（別のフォルダで開くと記憶を読みません）</li>
       <li><strong>ミスは遠慮なく指摘する</strong>のがいちばん効きます</li>
       <li><strong>about-me.md は自分で書き足してOK</strong>。仕事・目標・苦手なことなどを書くほど、話が早くなります</li>
+      <li><strong>secretary.md を書き換えると秘書のキャラが変わります</strong>（名前・話し方・口ぐせなど）</li>
       <li><strong>CLAUDE.md を書き換えると AI の動きが変わります</strong>（例：「返事は3行以内で」と足す）</li>
       <li>Obsidian の<strong>グラフビュー</strong>で記憶のつながりを眺めると楽しいです</li>
     </ul>
+  </div>
+  <div class="card">
+    <h3>💬 いつもの Claude の会話を引き継ぐ</h3>
+    <p>ブラウザやスマホアプリで使ってきた<strong>通常の Claude の会話</strong>も、秘書の記憶に引き継げます。Claude Code にこう送るだけです。</p>
+    <div class="inline-cmd"><code id="importPrompt"></code><button class="copy-btn" data-target="importPrompt">コピー</button></div>
+    <ol>
+      <li>Claude Code が「エクスポート」のやり方を案内します（claude.ai の 設定 → プライバシー → データをエクスポート）</li>
+      <li>メールで届いたリンクから zip をダウンロードして、「ダウンロードできた」と送る</li>
+      <li>あとは Claude Code が会話の一覧を出すので、<strong>どれを引き継ぐか選ぶだけ</strong>（全部／最近3か月／番号で指定）</li>
+    </ol>
+    <p>会話そのものではなく、<strong>要点だけ</strong>が about-me・projects・todo などに整理されます。zip には全部の会話が入っているので、人には渡さないでください。</p>
   </div>
   <div class="note warn"><span class="ico">⚠️</span><span><strong>パスワード・APIキー・カード番号は記憶に書かせないでください。</strong>お客さんの個人情報も必要最低限にしましょう。</span></div>
 </section>
@@ -261,6 +283,13 @@
   </details>
 
   <details>
+    <summary>前にこのページで記憶フォルダだけ作った（秘書を足したい）</summary>
+    <div class="d-body">
+      <p>同じフォルダを開いた Claude Code に、もう一度導入メッセージを貼ってください。記憶フォルダが入っていることを見つけて、<b>AI秘書だけ追加</b>してくれます（今までの記憶は消えません）。</p>
+    </div>
+  </details>
+
+  <details>
     <summary>自動で記録してくれない</summary>
     <div class="d-body">
       <p>「今の内容を daily に記録して」と頼めば確実に記録されます。何度も忘れるようなら「記録を忘れないように CLAUDE.md のルールを強めて」と頼んでみてください。</p>
@@ -286,7 +315,7 @@
 
 <footer>
   <div class="footer-in">
-    <span>🧠 Claude Code × Obsidian 記憶フォルダの作り方</span>
+    <span>🧠 AI秘書と記憶フォルダの作り方</span>
     <span>制作：関 諒也</span>
   </div>
 </footer>
